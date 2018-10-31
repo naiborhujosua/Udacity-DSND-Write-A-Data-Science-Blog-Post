@@ -101,8 +101,8 @@ def merge_annual_datas(org_datas):
     datas[2014].loc[:,'languages'] = datas[2014]['Which of the following languages or technologies have you used significantly in the past year?'].apply(lambda x:";".join([i  for i in list(x) if not pd.isna(i)]),axis=1)
         
     # select columns
-    select_column_indexes = [0,3,5,8,9,6,120,7]
-    select_column_names = ['country','age','IT_experience','industry','company_size','occupation','languages','salary']
+    select_column_indexes = [0,3,5,8,6,120,7]
+    select_column_names = ['country','age','IT_experience','industry','occupation','languages','salary']
 
     datas[2014] = select_column(datas,2014,select_column_indexes,select_column_names)
 
