@@ -3,7 +3,7 @@ import numpy as np
 
 from copy import deepcopy
 
-def merge_annual_datas(org_datas):
+def merge_annual_datas(org_datas,show_process_information=True):
     '''
     Merge all of the annual datas which certains all the columns I am interested in.
 
@@ -53,15 +53,17 @@ def merge_annual_datas(org_datas):
         datas[year] = datas[year].iloc[:,select_column_index]
         datas[year].columns = select_column_names
   
-        print("*" * 20 + str(year) + "*" * 20 )
-        print('select %s from data in %d year' %(','.join(select_column_names),year))
-        print("-"* 40)
-        print('indexes of above columns is %s' %str(select_column_indexes))
+        if show_process_information:
+            print("*" * 20 + str(year) + "*" * 20 )
+            print('select %s from data in %d year' %(','.join(select_column_names),year))
+            print("-"* 40)
+            print('indexes of above columns is %s' %str(select_column_indexes))
         if show_df:
-            print("-"* 40)
-            print('show df after selected columns:')
-            print("-"* 40)
-            print(datas[year].head(2))
+            if show_process_information:
+                print("-"* 40)
+                print('show df after selected columns:')
+                print("-"* 40)
+                print(datas[year].head(2))
 
         return datas[year]
 
@@ -143,8 +145,9 @@ def merge_annual_datas(org_datas):
     # add column 'year'
     for year in range(2011,2019):
         datas[year]['year'] = year
-    print("*"*40)
-    print('add column "year" for every annual data')
+    if show_process_information:
+        print("*"*40)
+        print('add column "year" for every annual data')
 
     # merge
     all_years_data = datas[2011]
@@ -154,9 +157,10 @@ def merge_annual_datas(org_datas):
     # reset_index
     all_years_data = all_years_data.reset_index()
 
-    print("*"*40)
-    print('successed to merge all of the annual datas')
-    print('merged data has %d rows and %d columns' %(all_years_data.shape[0],all_years_data.shape[1]))
-    print("*"*40)
+    if show_process_information:
+        print("*"*40)
+        print('successed to merge all of the annual datas')
+        print('merged data has %d rows and %d columns' %(all_years_data.shape[0],all_years_data.shape[1]))
+        print("*"*40)
 
     return all_years_data
