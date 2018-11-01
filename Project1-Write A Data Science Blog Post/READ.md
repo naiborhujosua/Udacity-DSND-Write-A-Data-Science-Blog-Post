@@ -8,7 +8,6 @@
 5. [Licensing, Authors, and Acknowledgements](#licensing)
 
 ## 1. Installation <a name="installation"></a>
----------------------
 
 - pyecharts(0.5.5)
 - The code should run with no issues using Python versions 3.*.
