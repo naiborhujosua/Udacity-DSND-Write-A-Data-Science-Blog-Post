@@ -65,8 +65,8 @@ def render_echarts(df,
         "#73a373", "#73b9bc", "#7289ab", "#91ca8c", "#f49f42"
     ]
 
-    legend_text_color = '#333333'
-    tooltip_text_color = "#333333"
+    legend_text_color = '#666666'
+    tooltip_text_color = "#FFFFFF"
     line_width = 3
 
     # kinds of chart
