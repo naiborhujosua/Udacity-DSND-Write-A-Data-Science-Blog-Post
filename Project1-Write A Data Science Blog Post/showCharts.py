@@ -29,7 +29,7 @@ def render_echarts(df,
                    **kwargs):
     '''render chart from Dataframe of Series
     
-    Parameters
+    Parameters:
     -------------------------------
     df: pd.DataFrame or pd.Series
         data 
@@ -48,7 +48,7 @@ def render_echarts(df,
     height: int or float, default 400
         the height of div including chart
 
-    Returns
+    Returns:
     ----------------------------------
     pyecharts.Chart
     '''
@@ -212,7 +212,7 @@ def change_index(df, how="column"):
     how:{"columns","row"}, default 'column'
         change the name of columns or rows
 
-    Return:
+    Returns:
     ---------------------------------------
     changed data
     '''
